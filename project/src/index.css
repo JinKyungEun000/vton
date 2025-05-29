@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: 59 130 246;
+  --color-secondary: 30 64 175;
+  --color-accent: 249 115 22;
+  --color-background: 15 23 42;
+  --color-surface: 30 41 59;
+  --color-text: 248 250 252;
+}
+
+body {
+  @apply bg-slate-900 text-slate-50 font-sans;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.loading-spinner {
+  @apply h-8 w-8 rounded-full border-4 border-slate-700 border-t-blue-500 animate-spin;
+}
+
+@layer components {
+  .btn {
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-200;
+  }
+  
+  .btn-primary {
+    @apply bg-blue-500 hover:bg-blue-600 text-white;
+  }
+  
+  .btn-secondary {
+    @apply bg-slate-700 hover:bg-slate-600 text-white;
+  }
+  
+  .card {
+    @apply bg-slate-800 rounded-xl p-4 shadow-lg;
+  }
+  
+  .nav-link {
+    @apply flex flex-col items-center justify-center rounded-xl p-3 transition-all duration-200;
+  }
+  
+  .nav-link.active {
+    @apply bg-slate-700 text-white;
+  }
+  
+  .nav-link:not(.active) {
+    @apply text-slate-400 hover:text-white hover:bg-slate-700/50;
+  }
+}
+
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 300ms, transform 300ms;
+}
